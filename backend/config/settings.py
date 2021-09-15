@@ -88,7 +88,6 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_CLASSES": [
         "rest_framework.throttling.AnonRateThrottle",
         "rest_framework.throttling.UserRateThrottle",
-        "accounts.throttles.AuditedScopedThrottle"
         # "rest_framework.throttling.ScopedRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
@@ -211,9 +210,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+# STATICFILES_DIRS = [
+#     STATIC_DIR,
+# ]
 
 # MEDIA
 
@@ -327,6 +326,8 @@ JWT_AUTH_RETURN_EXPIRATION = True
 # JWT_AUTH_COOKIE = "banker-access"
 
 # JWT_AUTH_REFRESH_COOKIE = 'banker-refresh'
+
+REST_SESSION_LOGIN = False
 
 ACCOUNT_LOGOUT_ON_GET = False
 
