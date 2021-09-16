@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # ? local apps
-    #
+    "accounts.apps.AccountsConfig",
     # ? 3rd party apps
     "rest_framework",
     "rest_framework.authtoken",
@@ -304,7 +304,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-# AUTH_USER_MODEL = "accounts.User"
+AUTH_USER_MODEL = "accounts.User"
 
 # LOGIN_URL = None
 # LOGIN_REDIRECT_URL = None
