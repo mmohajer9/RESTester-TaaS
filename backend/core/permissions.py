@@ -32,3 +32,21 @@ class Forbidden(BasePermission):
         Return `True` if permission is granted, `False` otherwise.
         """
         return False
+
+
+class IsTestPlanOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        """
+        Return `True` if permission is granted, `False` otherwise.
+        """
+        return bool(request.user and obj.user and request.user == obj.user)
+
+
+class IsTestSuiteOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        """
+        Return `True` if permission is granted, `False` otherwise.
+        """
+        return bool(
+            request.user and obj.test_plan.user and request.user == obj.test_plan.user
+        )
