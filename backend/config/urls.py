@@ -48,7 +48,7 @@ urlpatterns = [
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     # ------------------------------------------------------------------------------
     # ? local apps
-    #
+    path("api/v1/core/", include("core.urls", namespace="v1-core")),
     # ------------------------------------------------------------------------------
     # ? authentication
     # this url is used to generate email content

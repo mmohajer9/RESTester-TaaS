@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     # ? local apps
     "accounts.apps.AccountsConfig",
+    "core.apps.CoreConfig",
     # ? 3rd party apps
     "rest_framework",
     "rest_framework.authtoken",
@@ -210,9 +211,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-# STATICFILES_DIRS = [
-#     STATIC_DIR,
-# ]
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 
 # MEDIA
 
