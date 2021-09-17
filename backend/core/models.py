@@ -59,8 +59,8 @@ class TestPlan(models.Model):
     class Meta:
         # db_table = ''
         # managed = True
-        verbose_name = "TestPlan"
-        verbose_name_plural = "TestPlans"
+        verbose_name = "Test Plan"
+        verbose_name_plural = "Test Plans"
 
 
 class TestSuite(models.Model):
@@ -84,5 +84,5 @@ class TestSuite(models.Model):
     class Meta:
         # db_table = ''
         # managed = True
-        verbose_name = "TestSuite"
-        verbose_name_plural = "TestSuites"
+        verbose_name = "Test Suite"
+        verbose_name_plural = "Test Suites"
