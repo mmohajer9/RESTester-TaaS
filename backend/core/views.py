@@ -11,7 +11,7 @@ from django.core.files import File
 
 from .generics import EnhancedModelViewSet
 from .models import TestSuite, TestPlan
-from .permissions import IsTestPlanOwner, IsTestSuiteOwner
+from .permissions import Forbidden, IsTestPlanOwner, IsTestSuiteOwner
 from .serializers import TestPlanSerializer, TestSuiteSerializer
 from .connector import RESTesterConnector
 
@@ -95,3 +95,12 @@ class TestSuiteViewSet(EnhancedModelViewSet):
 
     ordering_fields = "__all__"
     ordering = ["id"]
+
+    action_permission_classes = {
+        # "list": [permissions.AllowAny],
+        # "create": [permissions.IsAuthenticated, IsNotSeller],
+        # "retrieve": [permissions.AllowAny],
+        "update": [Forbidden],
+        "partial_update": [Forbidden],
+        # "destroy": [permissions.IsAuthenticated, IsOwner],
+    }
