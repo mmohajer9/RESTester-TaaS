@@ -33,6 +33,7 @@ class TestSuiteSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestSuite
         fields = "__all__"
+        read_only_fields = ["result_nominal", "result_error"]
 
     def get_username(self, obj):
         return obj.test_plan.user.username
