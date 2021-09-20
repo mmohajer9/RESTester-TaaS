@@ -8,18 +8,27 @@ EXECUTION_PATH = config(
 )
 
 
-class Connector:
+class RESTesterConnector:
     def __init__(self, exec_path=EXECUTION_PATH, *args, **kwargs):
         self.exec_path = exec_path
+        self.generated_test_cases_path = None
+        self.odg_path = None
 
-    def generate(self, use_examples=True):
-        pass
-
-    def init(self):
-        command = [self.exec_path , 'init']
+    def generate(self, number, oas, graph, target_dir, use_example=True):
+        command = [
+            self.exec_path,
+            "generate",
+            str(number),
+            "-s",
+            oas,
+            "-g",
+            graph,
+            "-o",
+            target_dir,
+        ]
+        command.append("-u") if use_example else None
         subprocess.run(command)
 
-
-c = Connector()
-
-c.init()
+    def init(self, oas, target_dir):
+        command = [self.exec_path, "init", "-s", oas, "-o", target_dir]
+        subprocess.run(command)

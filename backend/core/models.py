@@ -17,6 +17,10 @@ def operation_dep_graph_upload_path(instance, filename):
     return f"accounts/{instance.user.username}/odg/{filename}"
 
 
+def generated_test_cases_upload_path(instance, filename):
+    return f"accounts/{instance.test_plan.user.username}/test-plans/{instance.test_plan.name}/test-cases/{filename}"
+
+
 class TestPlan(models.Model):
 
     user = models.ForeignKey(
@@ -32,7 +36,7 @@ class TestPlan(models.Model):
     )
     operation_dep_graph_file = models.FileField(
         _("Operation Dependency Graph file"),
-        upload_to=open_api_spec_upload_path,
+        upload_to=operation_dep_graph_upload_path,
         max_length=200,
         blank=True,
         null=True,
@@ -66,10 +70,24 @@ class TestPlan(models.Model):
 class TestSuite(models.Model):
 
     test_plan = models.ForeignKey(
-        "core.TestPlan", verbose_name=_("Test Suite"), on_delete=models.CASCADE
+        "core.TestPlan", verbose_name=_("Test Plan"), on_delete=models.CASCADE
     )
-    
-    result = models.JSONField(_("Result"), blank=True, null=True)
+
+    result_nominal = models.FileField(
+        _("Nominal Test Cases Result"),
+        upload_to=generated_test_cases_upload_path,
+        max_length=200,
+        blank=True,
+        null=True,
+    )
+
+    result_error = models.FileField(
+        _("Error Test Cases Result"),
+        upload_to=generated_test_cases_upload_path,
+        max_length=200,
+        blank=True,
+        null=True,
+    )
 
     created_at = models.DateTimeField(
         _("Created at"), auto_now_add=True, blank=True, null=True

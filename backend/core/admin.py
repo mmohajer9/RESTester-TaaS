@@ -28,7 +28,8 @@ class SellerAdmin(admin.ModelAdmin):
 class CityAdmin(admin.ModelAdmin):
     list_display = (
         "test_plan",
-        "result",
+        "result_nominal",
+        "result_error",
         "created_at",
         "updated_at",
     )
