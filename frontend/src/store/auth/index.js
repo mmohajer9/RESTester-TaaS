@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialAuthState = {};
+const initialAuthState = {
+  isAuthenticated: false,
+  userInfo: {},
+};
 
 const authSlice = createSlice({
   name: 'auth',
@@ -11,6 +14,9 @@ const authSlice = createSlice({
     },
   },
 });
+
+// add thunk actions like this:
+// authSlice.actions.login = login;
 
 
 export const authActions = authSlice.actions;

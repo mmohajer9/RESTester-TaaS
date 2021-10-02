@@ -1,13 +1,31 @@
-import './App.css';
 import React from 'react';
-import Authentication from '../Authentication/Authentication';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-function App() {
+import routes from '../../common/routes';
+import Auth from '../Auth/Auth';
+import Dashboard from '../Dashboard/Dashboard';
+
+const App = () => {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <Authentication />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={routes.auth}>
+          {auth.isAuthenticated ? <Redirect to={routes.dashboard} /> : <Auth />}
+        </Route>
+        <Route exact path={routes.dashboard}>
+          {!auth.isAuthenticated ? (
+            <Redirect to={routes.auth} />
+          ) : (
+            <Dashboard />
+          )}
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
