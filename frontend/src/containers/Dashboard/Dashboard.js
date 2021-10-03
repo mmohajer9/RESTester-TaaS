@@ -63,7 +63,7 @@ const Dashboard = (props) => {
               icon={faPlusCircle}
               size="7x"
             />
-            <p className="lead">Create new test plan</p>
+            <p className="lead">Create a new test plan</p>
           </Col>
           <Col
             as={Button}
