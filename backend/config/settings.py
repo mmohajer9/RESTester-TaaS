@@ -318,6 +318,8 @@ SITE_ID = 1
 
 # ? allauth , dj-rest-auth , simpleJWT settings
 
+ACCOUNT_EMAIL_REQUIRED = True
+
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 REST_USE_JWT = True
