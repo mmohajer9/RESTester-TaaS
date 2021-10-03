@@ -42,7 +42,7 @@ const Register = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="lead mb-3" controlId="formUsername">
+      <Form.Group className="lead mb-2" controlId="formUsername">
         <FloatingLabel className="py-1" controlId="usernameInputId" label="Username">
           <Form.Control onChange={handleUsernameChange} type="text" placeholder="Username" />
         </FloatingLabel>

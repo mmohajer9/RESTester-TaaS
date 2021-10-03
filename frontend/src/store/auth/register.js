@@ -18,7 +18,7 @@ export const register = (values, history) => {
     try {
       const { data } = await axios.post(path, payload);
       dispatch(authActions.setLoginInfo(data));
-      toast.success('You have signed up Successfully', {
+      toast.success('You have signed up successfully', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
@@ -38,7 +38,17 @@ export const register = (values, history) => {
       });
       history.push(routes.dashboard);
     } catch (error) {
-      const errorMessages = error.response.data;
+      const errorMessages = error?.response?.data;
+      toast.error("Registration has been failed", {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
       for (const field in errorMessages) {
         const message = `${field}: ${errorMessages[field][0]}`;
         toast.error(message, {

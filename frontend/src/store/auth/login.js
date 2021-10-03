@@ -23,7 +23,7 @@ export const login = (values, history) => {
     try {
       const { data } = await axios.post(path, payload);
       await dispatch(authActions.setLoginInfo(data));
-      toast.success('You have logged in Successfully', {
+      toast.success('You have logged in successfully', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
