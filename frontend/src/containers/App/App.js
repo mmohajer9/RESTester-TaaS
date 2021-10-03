@@ -18,11 +18,13 @@ const App = () => {
         <Route exact path={routes.auth}>
           {auth.isAuthenticated ? <Redirect to={routes.dashboard} /> : <Auth />}
         </Route>
-        <Route exact path={routes.dashboard}>
+        <Route path={routes.dashboard}>
           {!auth.isAuthenticated ? (
             <Redirect to={routes.auth} />
           ) : (
-            <Dashboard />
+            <Route>
+              <Route exact path={routes.dashboard} component={Dashboard} />
+            </Route>
           )}
         </Route>
       </Switch>

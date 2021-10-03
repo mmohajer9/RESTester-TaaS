@@ -7,8 +7,13 @@ import {
   faPlusCircle,
   // faHistory,
 } from '@fortawesome/free-solid-svg-icons';
+import CreateTestPlan from '../../components/CreateTestPlan/CreateTestPlan';
+import { useDispatch } from 'react-redux';
+import { commonActions } from '../../store/common';
 
 const Dashboard = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <NavigationBar />
@@ -50,6 +55,7 @@ const Dashboard = (props) => {
           </Col>
           <Col
             as={Button}
+            onClick={() => dispatch(commonActions.openCreateModal())}
             variant="outline-dark"
             className="text-center border py-3 me-1 mb-3"
             xs={12}
@@ -84,6 +90,7 @@ const Dashboard = (props) => {
           </Col> */}
         </Row>
       </Container>
+      <CreateTestPlan />
     </>
   );
 };

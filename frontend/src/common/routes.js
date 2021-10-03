@@ -1,10 +1,10 @@
 const routes = {
   homepage: '/',
   dashboard: '/dashboard',
-  testPlans: '/test-plans',
-  testPlanDetail: '/test-plans/:id',
-  testSuites: '/test-suites',
-  testSuiteDetail: '/test-suites/:id',
+  testPlans: '/dashboard/test-plans',
+  testPlanDetail: '/dashboard/test-plans/:id',
+  testSuites: '/dashboard/test-suites',
+  testSuiteDetail: '/dashboard/test-suites/:id',
 
   auth: '/auth',
   api: {},
