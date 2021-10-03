@@ -8,7 +8,6 @@ const TestPlan = ({ data }) => {
   const created_at = moment(data.created_at).calendar();
   const updated_at = moment(data.updated_at).calendar();
   const { name, number_of_test_cases, use_example } = data;
-  console.log(use_example);
 
   return (
     <Col xs={12} sm={12} md={6} lg={4}>

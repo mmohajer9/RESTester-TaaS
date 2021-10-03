@@ -2,9 +2,8 @@ const routes = {
   homepage: '/',
   dashboard: '/dashboard',
   testPlans: '/dashboard/test-plans',
-  testPlanDetail: '/dashboard/test-plans/:id',
+  testSuitesOfTestPlan: '/dashboard/test-plans/:id/test-suites',
   testSuites: '/dashboard/test-suites',
-  testSuiteDetail: '/dashboard/test-suites/:id',
 
   auth: '/auth',
   api: {
