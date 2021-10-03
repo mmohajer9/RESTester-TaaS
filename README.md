@@ -23,6 +23,24 @@ Testing as a Service (TaaS) with RESTful API to integrate with [RESTester](https
 1. `python manage.py migrate`
 2. `python manage.py runserver`
 
+### Class Diagram
+
+![class-diagram](./docs/class-diagram-all.png)
+
+### Screenshots
+
+![class-diagram](./docs/login.png)
+
+![class-diagram](./docs/signup.png)
+
+![class-diagram](./docs/dashboard.png)
+
+![class-diagram](./docs/create-test-plan.png)
+
+![class-diagram](./docs/test-plans.png)
+
+![class-diagram](./docs/test-suites.png)
+
 ## Credits
 
 Thank those who helped make this possible.
