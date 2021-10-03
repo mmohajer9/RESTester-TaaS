@@ -3,6 +3,8 @@ import createTestPlan from './createTestPlan';
 
 const initialCommonState = {
   isCreateOpen: false,
+  testPlans : [],
+  testSuites : [],
 };
 
 const commonSlice = createSlice({
