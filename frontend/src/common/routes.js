@@ -78,6 +78,16 @@ const routes = {
     userDetail: {
       path: '/api/rest-auth/user/',
     },
+    createTestPlan: {
+      path: 'http://127.0.0.1:8000/api/v1/core/test_plans/',
+      payload: {
+        name: '',
+        open_api_spec_file: null,
+        operation_dep_graph_file: null,
+        number_of_test_cases: null,
+        use_example: false,
+      },
+    },
   },
 };
 

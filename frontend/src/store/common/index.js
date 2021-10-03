@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import createTestPlan from './createTestPlan';
 
 const initialCommonState = {
   isCreateOpen: false,
@@ -18,7 +19,7 @@ const commonSlice = createSlice({
 });
 
 // add thunk actions like this:
-// commonSlice.actions.login = login;
+commonSlice.actions.createTestPlan = createTestPlan;
 
 export const commonActions = commonSlice.actions;
 
