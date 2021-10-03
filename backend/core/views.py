@@ -33,6 +33,8 @@ class TestPlanViewSet(EnhancedModelViewSet):
 
     ordering_fields = "__all__"
     ordering = ["id"]
+    filterset_fields = ["id", "name"]
+    search_fields = ["id", "name"]
 
 
 class TestSuiteViewSet(EnhancedModelViewSet):
@@ -95,6 +97,9 @@ class TestSuiteViewSet(EnhancedModelViewSet):
 
     ordering_fields = "__all__"
     ordering = ["id"]
+
+    filterset_fields = ["id", "test_plan" , "test_plan__id", "test_plan__name"]
+    # search_fields = ["id", "test_plan__id"]
 
     action_permission_classes = {
         # "list": [permissions.AllowAny],
