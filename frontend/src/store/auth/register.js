@@ -12,9 +12,7 @@ export const register = (values, history) => {
     payload.username = values.username;
     payload.password1 = values.password;
     payload.password2 = values.confirmPassword;
-    if (!values.email) {
-      payload.email = undefined;
-    }
+    payload.email = values.email;
     try {
       const { data } = await axios.post(path, payload);
       dispatch(authActions.setLoginInfo(data));
@@ -39,7 +37,7 @@ export const register = (values, history) => {
       history.push(routes.dashboard);
     } catch (error) {
       const errorMessages = error?.response?.data;
-      toast.error("Registration has been failed", {
+      toast.error('Registration has been failed', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,

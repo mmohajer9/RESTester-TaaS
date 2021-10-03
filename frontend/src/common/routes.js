@@ -45,7 +45,7 @@ const routes = {
       path: '/api/rest-auth/registration/',
       payload: {
         username: 'string',
-        email: 'user@example.com',
+        email: null,
         password1: 'string',
         password2: 'string',
       },

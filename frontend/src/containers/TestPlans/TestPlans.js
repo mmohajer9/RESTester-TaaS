@@ -59,7 +59,7 @@ const TestPlan = ({ data }) => {
                   <Spinner
                     as="span"
                     animation="border"
-                    size="sm"
+                    size="md"
                     role="status"
                     aria-hidden="true"
                   />

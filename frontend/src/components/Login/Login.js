@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, FloatingLabel } from 'react-bootstrap';
+import { Form, Button, FloatingLabel, Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { authActions } from '../../store/auth';
@@ -9,6 +9,7 @@ const Login = (props) => {
   const history = useHistory();
   const [username, setUsername] = useState('user');
   const [password, setPassword] = useState('pass');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -18,19 +19,25 @@ const Login = (props) => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const values = {
       usernameOrEmail: username,
       password: password,
     };
-    dispatch(authActions.login(values, history));
+    await dispatch(authActions.login(values, history));
+    setIsLoading(false);
   };
 
   return (
     <Form onSubmit={handleLogin}>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel className="py-1" controlId="usernameInputId" label="Username or Email">
+        <FloatingLabel
+          className="py-1"
+          controlId="usernameInputId"
+          label="Username or Email"
+        >
           <Form.Control
             onChange={handleUsernameChange}
             type="text"
@@ -40,7 +47,11 @@ const Login = (props) => {
       </Form.Group>
 
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <FloatingLabel className="py-1" controlId="passwordInputId" label="Password">
+        <FloatingLabel
+          className="py-1"
+          controlId="passwordInputId"
+          label="Password"
+        >
           <Form.Control
             onChange={handlePasswordChange}
             type="password"
@@ -49,8 +60,18 @@ const Login = (props) => {
         </FloatingLabel>
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button variant="primary" size="lg" type="submit">
-          Login
+        <Button disabled={isLoading} variant="primary" size="lg" type="submit">
+          {isLoading ? (
+            <Spinner
+              as="span"
+              animation="border"
+              size="md"
+              role="status"
+              aria-hidden="true"
+            />
+          ) : (
+            'Login'
+          )}
         </Button>
       </div>
       <hr></hr>
