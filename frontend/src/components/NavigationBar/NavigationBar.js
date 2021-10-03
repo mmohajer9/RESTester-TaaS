@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import routes from '../../common/routes';
 import { authActions } from '../../store/auth';
@@ -8,6 +8,7 @@ import { authActions } from '../../store/auth';
 const NavigationBar = () => {
   const [expanded, setExpanded] = useState(false);
   const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth)
 
   const handleLogout = () => {
     dispatch(authActions.logout());
@@ -47,7 +48,7 @@ const NavigationBar = () => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown title="mmohajer9" id="collasible-nav-dropdown">
+            <NavDropdown title={auth.userInfo.username} id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Help</NavDropdown.Item>
