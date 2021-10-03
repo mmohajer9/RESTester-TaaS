@@ -5,6 +5,8 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import routes from '../../common/routes';
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
+import TestPlans from '../TestPlans/TestPlans';
+import TestSuites from '../TestSuites/TestSuites';
 
 import './App.scss';
 
@@ -22,9 +24,11 @@ const App = () => {
           {!auth.isAuthenticated ? (
             <Redirect to={routes.auth} />
           ) : (
-            <Route>
+            <Switch>
               <Route exact path={routes.dashboard} component={Dashboard} />
-            </Route>
+              <Route exact path={routes.dashboard} component={TestPlans} />
+              <Route exact path={routes.dashboard} component={TestSuites} />
+            </Switch>
           )}
         </Route>
       </Switch>
