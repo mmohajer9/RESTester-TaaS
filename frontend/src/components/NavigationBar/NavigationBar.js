@@ -1,17 +1,43 @@
+import { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import routes from '../../common/routes';
 
 const NavigationBar = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
+    <Navbar
+      sticky="top"
+      expanded={expanded}
+      expand="md"
+      bg="dark"
+      variant="dark"
+    >
       <Container fluid="lg">
-        <Navbar.Brand as={NavLink} to={routes.dashboard}>RESTester Dashboard</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand as={NavLink} to={routes.dashboard}>
+          RESTester Dashboard
+        </Navbar.Brand>
+        <Navbar.Toggle
+          onClick={() => setExpanded(expanded ? false : true)}
+          aria-controls="responsive-navbar-nav"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={NavLink} to={routes.testPlans}>Test Plans</Nav.Link>
-            <Nav.Link as={NavLink} to={routes.testSuites}>Test Suites</Nav.Link>
+            <Nav.Link
+              onClick={() => setExpanded(false)}
+              as={NavLink}
+              to={routes.testPlans}
+            >
+              Test Plans
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => setExpanded(false)}
+              as={NavLink}
+              to={routes.testSuites}
+            >
+              Test Suites
+            </Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown title="mmohajer9" id="collasible-nav-dropdown">
