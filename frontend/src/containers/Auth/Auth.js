@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Image, Row, Col, Button } from 'react-bootstrap';
+import { Container, Image, Row, Col } from 'react-bootstrap';
 
 import authBg from '../../assets/authBg.png';
 import Login from '../../components/Login/Login';

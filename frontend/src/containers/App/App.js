@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import routes from '../../common/routes';
@@ -10,7 +10,7 @@ import './App.scss';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <BrowserRouter>
