@@ -318,6 +318,7 @@ SITE_ID = 1
 
 # ? allauth , dj-rest-auth , simpleJWT settings
 
+# we need to provide email in signing up
 ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
