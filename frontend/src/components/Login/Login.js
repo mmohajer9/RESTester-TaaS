@@ -4,13 +4,13 @@ const Login = (props) => {
   return (
     <Form>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel controlId="floatingInput" label="Username">
-          <Form.Control type="username" placeholder="Username" />
+        <FloatingLabel controlId="usernameInputId" label="Username">
+          <Form.Control type="text" placeholder="Username" />
         </FloatingLabel>
       </Form.Group>
 
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <FloatingLabel controlId="floatingInput" label="Password">
+        <FloatingLabel controlId="passwordInputId" label="Password">
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
       </Form.Group>

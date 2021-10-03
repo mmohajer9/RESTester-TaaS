@@ -4,22 +4,22 @@ const Register = (props) => {
   return (
     <Form>
       <Form.Group className="lead mb-3" controlId="formUsername">
-        <FloatingLabel controlId="floatingInput" label="Username">
-          <Form.Control type="username" placeholder="Username" />
+        <FloatingLabel controlId="usernameInputId" label="Username">
+          <Form.Control type="text" placeholder="Username" />
         </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel controlId="floatingInput" label="Email">
+        <FloatingLabel controlId="emailInputId" label="Email">
           <Form.Control type="email" placeholder="example@example.com" />
         </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <FloatingLabel controlId="floatingInput" label="Password">
+        <FloatingLabel controlId="passwordInputId" label="Password">
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicConfirmPassword">
-        <FloatingLabel controlId="floatingInput" label="Confirm Password">
+        <FloatingLabel controlId="confirmPasswordInputId" label="Confirm Password">
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
       </Form.Group>
