@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import getUserRemoteInfo from './getUserRemoteInfo';
 import login from './login';
+import register from './register';
 
 const initialAuthState = {
   isAuthenticated: false,
@@ -31,6 +33,15 @@ const authSlice = createSlice({
       currentState.userInfo = {};
       currentState.token = {};
       currentState.isAuthenticated = false;
+      toast.info('You have logged out Successfully', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
     },
     getUserLocalInfo(currentState) {
       try {
@@ -55,6 +66,7 @@ const authSlice = createSlice({
 
 authSlice.actions.login = login;
 authSlice.actions.getUserRemoteInfo = getUserRemoteInfo;
+authSlice.actions.register = register;
 
 export const authActions = authSlice.actions;
 

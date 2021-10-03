@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import routes from '../../common/routes';
+import { authActions } from '../../store/auth';
 
 const NavigationBar = () => {
   const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(authActions.logout());
+  };
 
   return (
     <Navbar
@@ -45,7 +52,7 @@ const NavigationBar = () => {
               <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Help</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item className="text-danger" href="#action/3.4">
+              <NavDropdown.Item onClick={handleLogout} className="text-danger">
                 Logout
               </NavDropdown.Item>
             </NavDropdown>

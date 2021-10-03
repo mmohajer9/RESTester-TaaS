@@ -11,7 +11,7 @@ const Auth = (props) => {
   return (
     <>
       <Container className="min-vh-100 d-flex flex-column justify-content-center">
-        <Row className="shadow shadow-lg justify-content-center py-4">
+        <Row className="shadow shadow-lg justify-content-center py-5">
           <Col xs={12} className="text-center"></Col>
           <Col
             className="border-bottom border-md-right border-md-bottom-0 d-flex align-items-center mb-5 py-5"
