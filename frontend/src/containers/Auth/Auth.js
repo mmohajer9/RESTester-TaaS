@@ -1,8 +1,5 @@
-
 const Auth = (props) => {
-  return <>
-    Auth
-  </>;
+  return <></>;
 };
 
 export default Auth;
