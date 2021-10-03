@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import createTestPlan from './createTestPlan';
+import createTestSuite from './createTestSuite';
 import getTestPlans from './getTestPlans';
 import getTestSuites from './getTestSuites';
 
@@ -30,6 +31,7 @@ const commonSlice = createSlice({
 
 // add thunk actions like this:
 commonSlice.actions.createTestPlan = createTestPlan;
+commonSlice.actions.createTestSuite = createTestSuite;
 commonSlice.actions.getTestPlans = getTestPlans;
 commonSlice.actions.getTestSuites = getTestSuites;
 
