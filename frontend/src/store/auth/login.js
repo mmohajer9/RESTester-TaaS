@@ -5,8 +5,7 @@ import routes from '../../common/routes';
 import { authActions } from '.';
 import getAxiosInstance from '../../common/axios';
 
-
-export const login = ({ values, history }) => {
+export const login = (values, history) => {
   return async (dispatch) => {
     const axios = getAxiosInstance();
     const isEmail = validator.isEmail(values.usernameOrEmail);
@@ -31,20 +30,21 @@ export const login = ({ values, history }) => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+        theme: 'colored',
       });
-      history.push(routes.profile);
+      history.push(routes.dashboard);
     } catch (error) {
       const errorMessage =
         error.response.data.non_field_errors[0] ||
-        'Unable to log in with provided credentials.';
+        'Unable to log in with the provided credentials.';
       toast.error(errorMessage, {
         position: 'top-right',
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined,
+        theme: 'colored',
       });
     }
   };

@@ -1,21 +1,55 @@
+import { useState } from 'react';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import { authActions } from '../../store/auth';
 
 const Login = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [username, setUsername] = useState('user');
+  const [password, setPassword] = useState('pass');
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const values = {
+      usernameOrEmail: username,
+      password: password,
+    };
+    dispatch(authActions.login(values, history));
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleLogin}>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel controlId="usernameInputId" label="Username">
-          <Form.Control type="text" placeholder="Username" />
+        <FloatingLabel controlId="usernameInputId" label="Username or Email">
+          <Form.Control
+            onChange={handleUsernameChange}
+            type="text"
+            placeholder="Username or Email"
+          />
         </FloatingLabel>
       </Form.Group>
 
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
         <FloatingLabel controlId="passwordInputId" label="Password">
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            onChange={handlePasswordChange}
+            type="password"
+            placeholder="Password"
+          />
         </FloatingLabel>
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button variant="primary" size="lg">
+        <Button variant="primary" size="lg" type="submit">
           Login
         </Button>
       </div>
