@@ -43,17 +43,17 @@ const Register = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="lead mb-3" controlId="formUsername">
-        <FloatingLabel controlId="usernameInputId" label="Username">
+        <FloatingLabel className="py-1" controlId="usernameInputId" label="Username">
           <Form.Control onChange={handleUsernameChange} type="text" placeholder="Username" />
         </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel controlId="emailInputId" label="Email">
+        <FloatingLabel className="py-1" controlId="emailInputId" label="Email">
           <Form.Control onChange={handleEmailChange} type="email" placeholder="example@example.com" />
         </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <FloatingLabel controlId="passwordInputId" label="Password">
+        <FloatingLabel className="py-1" controlId="passwordInputId" label="Password">
           <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
         </FloatingLabel>
       </Form.Group>

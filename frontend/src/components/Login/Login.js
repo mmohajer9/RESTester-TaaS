@@ -30,7 +30,7 @@ const Login = (props) => {
   return (
     <Form onSubmit={handleLogin}>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <FloatingLabel controlId="usernameInputId" label="Username or Email">
+        <FloatingLabel className="py-1" controlId="usernameInputId" label="Username or Email">
           <Form.Control
             onChange={handleUsernameChange}
             type="text"
@@ -40,7 +40,7 @@ const Login = (props) => {
       </Form.Group>
 
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <FloatingLabel controlId="passwordInputId" label="Password">
+        <FloatingLabel className="py-1" controlId="passwordInputId" label="Password">
           <Form.Control
             onChange={handlePasswordChange}
             type="password"
