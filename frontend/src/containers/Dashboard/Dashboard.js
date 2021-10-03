@@ -5,7 +5,7 @@ import {
   faFileCode,
   faVial,
   faPlusCircle,
-  faHistory,
+  // faHistory,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = (props) => {
@@ -65,7 +65,7 @@ const Dashboard = (props) => {
             />
             <p className="lead">Create a new test plan</p>
           </Col>
-          <Col
+          {/* <Col
             as={Button}
             variant="outline-dark"
             className="text-center border py-3 me-1 mb-3"
@@ -81,7 +81,7 @@ const Dashboard = (props) => {
               size="7x"
             />
             <p className="lead">History</p>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </>
