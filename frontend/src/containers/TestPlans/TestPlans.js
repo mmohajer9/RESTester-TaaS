@@ -1,18 +1,30 @@
+import moment from 'moment';
 import { useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { commonActions } from '../../store/common';
 
-const TestPlan = () => {
+const TestPlan = ({ data }) => {
+  const created_at = moment(data.created_at).calendar();
+  const updated_at = moment(data.updated_at).calendar();
+  const { name, number_of_test_cases, use_example } = data;
+  console.log(use_example);
+
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
       <Card>
-        <Card.Header>Created at 2021-09-20 - Updated at 2021-09-20</Card.Header>
+        <Card.Header>
+          <Row>
+            <Col xs={6}>Created at: {created_at}</Col>
+            <Col xs={6}>Updated at: {updated_at}</Col>
+          </Row>
+        </Card.Header>
+
         <Card.Body>
-          <Card.Title>Pet Store Plan</Card.Title>
+          <Card.Title>{name}</Card.Title>
           <hr />
-          <Card.Text>Number of test cases : 1</Card.Text>
-          <Card.Text>Using Examples : True</Card.Text>
+          <Card.Text>Number of test cases : {number_of_test_cases}</Card.Text>
+          <Card.Text>Using Examples : {`${use_example}`}</Card.Text>
           <Row className="gy-2">
             <Col xs={12} sm={6}>
               <Button className="w-100" variant="primary">
@@ -47,7 +59,7 @@ const TestPlans = () => {
           <Alert variant="warning">No test plans has been created yet.</Alert>
         ) : null}
         {testPlans.map((item, index) => (
-          <TestPlan key={index} />
+          <TestPlan data={item} key={index} />
         ))}
       </Row>
     </Container>
