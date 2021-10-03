@@ -6,6 +6,8 @@ import routes from '../../common/routes';
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
 
+import './App.scss';
+
 const App = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
