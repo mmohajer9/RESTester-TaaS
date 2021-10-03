@@ -1,23 +1,27 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
 
 const Register = (props) => {
   return (
     <Form>
       <Form.Group className="lead mb-3" controlId="formUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" />
+        <FloatingLabel controlId="floatingInput" label="Username">
+          <Form.Control type="username" placeholder="Username" />
+        </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <FloatingLabel controlId="floatingInput" label="Email">
+          <Form.Control type="email" placeholder="example@example.com" />
+        </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <FloatingLabel controlId="floatingInput" label="Password">
+          <Form.Control type="password" placeholder="Password" />
+        </FloatingLabel>
       </Form.Group>
       <Form.Group className="lead mb-3" controlId="formBasicConfirmPassword">
-        <Form.Label>Confirm Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <FloatingLabel controlId="floatingInput" label="Confirm Password">
+          <Form.Control type="password" placeholder="Password" />
+        </FloatingLabel>
       </Form.Group>
       <div className="d-grid gap-2">
         <Button variant="success" size="lg">

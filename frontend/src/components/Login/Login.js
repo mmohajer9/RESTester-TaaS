@@ -1,18 +1,18 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
 
 const Login = (props) => {
-
-
   return (
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="lead">Username</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" />
+      <Form.Group className="lead mb-3" controlId="formBasicEmail">
+        <FloatingLabel controlId="floatingInput" label="Username">
+          <Form.Control type="username" placeholder="Username" />
+        </FloatingLabel>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="lead">Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+      <Form.Group className="lead mb-3" controlId="formBasicPassword">
+        <FloatingLabel controlId="floatingInput" label="Password">
+          <Form.Control type="password" placeholder="Password" />
+        </FloatingLabel>
       </Form.Group>
       <div className="d-grid gap-2">
         <Button variant="primary" size="lg">
@@ -22,7 +22,11 @@ const Login = (props) => {
       <hr></hr>
       <h6 className="">Don't have an account? </h6>
       <div className="d-grid gap-2 mb-2 mt-2">
-        <Button onClick={() => props.setAuthMode('register')} variant="success" size="lg">
+        <Button
+          onClick={() => props.setAuthMode('register')}
+          variant="success"
+          size="lg"
+        >
           Sign up
         </Button>
       </div>
