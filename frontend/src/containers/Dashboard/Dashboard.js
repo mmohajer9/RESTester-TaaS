@@ -1,5 +1,4 @@
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFileCode,
@@ -10,18 +9,22 @@ import {
 import CreateTestPlan from '../../components/CreateTestPlan/CreateTestPlan';
 import { useDispatch } from 'react-redux';
 import { commonActions } from '../../store/common';
+import { useHistory } from 'react-router';
+import routes from '../../common/routes';
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <>
-      <NavigationBar />
+      
       <Container>
         <Row className="mt-4 g-2 justify-content-around">
           <Col
             as={Button}
             variant="outline-dark"
+            onClick={() => history.push(routes.testPlans)}
             className="text-center border py-3 me-1 mb-3"
             xs={12}
             sm={6}
@@ -38,6 +41,7 @@ const Dashboard = (props) => {
           </Col>
           <Col
             as={Button}
+            onClick={() => history.push(routes.testSuites)}
             variant="outline-dark"
             className="text-center border py-3 me-1 mb-3"
             xs={12}
@@ -71,23 +75,6 @@ const Dashboard = (props) => {
             />
             <p className="lead">Create a new test plan</p>
           </Col>
-          {/* <Col
-            as={Button}
-            variant="outline-dark"
-            className="text-center border py-3 me-1 mb-3"
-            xs={12}
-            sm={6}
-            md={3}
-            lg={2}
-          >
-            <FontAwesomeIcon
-              color="#8432ef"
-              className="mb-3"
-              icon={faHistory}
-              size="7x"
-            />
-            <p className="lead">History</p>
-          </Col> */}
         </Row>
       </Container>
       <CreateTestPlan />

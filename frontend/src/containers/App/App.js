@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import routes from '../../common/routes';
+import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
 import TestPlans from '../TestPlans/TestPlans';
@@ -24,11 +25,14 @@ const App = () => {
           {!auth.isAuthenticated ? (
             <Redirect to={routes.auth} />
           ) : (
-            <Switch>
-              <Route exact path={routes.dashboard} component={Dashboard} />
-              <Route exact path={routes.dashboard} component={TestPlans} />
-              <Route exact path={routes.dashboard} component={TestSuites} />
-            </Switch>
+            <>
+              <NavigationBar />
+              <Switch>
+                <Route exact path={routes.dashboard} component={Dashboard} />
+                <Route exact path={routes.dashboard} component={TestPlans} />
+                <Route exact path={routes.dashboard} component={TestSuites} />
+              </Switch>
+            </>
           )}
         </Route>
       </Switch>

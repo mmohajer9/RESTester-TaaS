@@ -1,15 +1,17 @@
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import routes from '../../common/routes';
 
 const NavigationBar = () => {
   return (
     <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
       <Container fluid="lg">
-        <Navbar.Brand href="#home">RESTester Dashboard</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to={routes.dashboard}>RESTester Dashboard</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Test Plans</Nav.Link>
-            <Nav.Link href="#pricing">Test Suites</Nav.Link>
+            <Nav.Link as={NavLink} to={routes.testPlans}>Test Plans</Nav.Link>
+            <Nav.Link as={NavLink} to={routes.testSuites}>Test Suites</Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown title="mmohajer9" id="collasible-nav-dropdown">
