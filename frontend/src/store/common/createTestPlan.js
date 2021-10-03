@@ -9,9 +9,9 @@ export const createTestPlan = (values, history) => {
     const path = routes.api.createTestPlan.path;
     // const payload = routes.api.createTestPlan.payload;
     const data = new FormData();
-    data.append('open_api_spec_file', values.name);
-    data.append('operation_dep_graph_file', values.oasFile);
-    data.append('name', values.odgFile);
+    data.append('name', values.name);
+    data.append('open_api_spec_file', values.oasFile);
+    data.append('operation_dep_graph_file', values.odgFile);
     data.append('number_of_test_cases', +values.numberOfTestCases);
     data.append('use_example', values.useExample);
 

@@ -88,6 +88,18 @@ const routes = {
         use_example: false,
       },
     },
+    getTestPlans: {
+      path: 'http://127.0.0.1:8000/api/v1/core/test_plans/',
+    },
+    getTestSuites: {
+      path: 'http://127.0.0.1:8000/api/v1/core/test_suites/',
+    },
+    createTestSuite: {
+      path: 'http://127.0.0.1:8000/api/v1/core/test_suites/',
+      payload: {
+        test_plan: null,
+      },
+    },
   },
 };
 

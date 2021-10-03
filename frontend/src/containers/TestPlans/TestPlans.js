@@ -1,4 +1,7 @@
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { useEffect } from 'react';
+import { Container, Row, Col, Card, Button, Alert } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { commonActions } from '../../store/common';
 
 const TestPlan = () => {
   return (
@@ -29,14 +32,23 @@ const TestPlan = () => {
 };
 
 const TestPlans = () => {
+  const { testPlans } = useSelector((state) => state.common);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(commonActions.getTestPlans());
+  }, [dispatch]);
+
   return (
     <Container>
       <h1 className="my-3">Test Plans</h1>
       <Row className="gy-3">
-        <TestPlan />
-        <TestPlan />
-        <TestPlan />
-        <TestPlan />
+        {testPlans.length === 0 ? (
+          <Alert variant="warning">No test plans has been created yet.</Alert>
+        ) : null}
+        {testPlans.map((item, index) => (
+          <TestPlan key={index} />
+        ))}
       </Row>
     </Container>
   );
