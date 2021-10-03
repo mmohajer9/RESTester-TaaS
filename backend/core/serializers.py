@@ -29,6 +29,7 @@ class TestPlanSerializer(serializers.ModelSerializer):
 class TestSuiteSerializer(serializers.ModelSerializer):
 
     username = serializers.SerializerMethodField()
+    test_plan_name = serializers.SerializerMethodField()
 
     class Meta:
         model = TestSuite
@@ -37,3 +38,6 @@ class TestSuiteSerializer(serializers.ModelSerializer):
 
     def get_username(self, obj):
         return obj.test_plan.user.username
+
+    def get_test_plan_name(self, obj):
+        return obj.test_plan.name
